@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="ko-kr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>해당글 수정하기</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        ul {
+            list-style:none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>수정페이지</h1>
+
+    <form action="/reviseContent" method="post">
+        <input class = "hidden" type="text" name="revise_id" th:value="${revise.getId()}"/> <!--/수정할 게시글 id값-->
+        <ul>
+            <li>
+                제목 : <input type="text" name="revise_title" th:value="${revise.getTitle()}"/>
+            </li>
+            <li>
+                내용 : <input type="text" name="revise_content" th:value="${revise.getContent()}"/> <!--/수정할 게시글 보여주면서 새로운 내용 입력받음-->
+            </li>
+        </ul>
+        <p>
+            <input type="submit" value="수정하기"/> <!--/HelloController의 수정내용 저장을 위한 부분으로 연결-->
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="ko-kr">
+<head>
+    <meta charset="UTF-8" />
+    <title>상세페이지</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        ul {
+            list-style:none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+    <h1>해당글 상세페이지</h1>
+        <h3 th:text="${detail.getTitle()}"></h3>
+        <p th:text="${detail.getContent()}"></p> <!--/클릭한 게시글의 제목, 내용-->
+    </ul>
+    <form action="/deleteContent" method="post">
+        <input class = "hidden" type="text" name="detail_id" th:value="${detail.getId()}"/>
+        <input type="submit" value="삭제하기"/> <!--/삭제를 위해 HelloController 관련 리퀘스트 매핑으로 찾아감-->
+    </form>
+
+    <a th:href="@{revisepage(id=${detail.getId()})}">수정하기</a> <!--/수정하기 페이지로 id값 넘기면서 연결-->
+
+</body>
+</html>
