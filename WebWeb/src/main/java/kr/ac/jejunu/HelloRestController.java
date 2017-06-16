@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloRestController {
+    //공부용 Controller입니다
     @Autowired
     private IndexDao indexDao;
 

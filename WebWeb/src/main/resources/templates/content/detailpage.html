@@ -7,7 +7,7 @@
     <title>상세페이지</title>
     <style>
         body {
-            text-align: center;
+            text-align: left;
         }
 
         ul {
@@ -20,10 +20,15 @@
     </style>
 </head>
 <body>
-    <ul>
     <h1>해당글 상세페이지</h1>
-        <h3 th:text="${detail.getTitle()}"></h3>
-        <p th:text="${detail.getContent()}"></p> <!--/클릭한 게시글의 제목, 내용-->
+
+    <ul>
+        <li>
+            제목 : <p th:text="${detail.getTitle()}"></p>
+        </li>
+        <li>
+            내용 : <p th:text="${detail.getContent()}"></p> <!--/클릭한 게시글의 제목, 내용-->
+        </li>
     </ul>
     <form action="/deleteContent" method="post">
         <input class = "hidden" type="text" name="detail_id" th:value="${detail.getId()}"/>
